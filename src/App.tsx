@@ -343,7 +343,6 @@ export default function App() {
   const [selected, setSelected] = useState(0);
   const [detailsOpen, setDetailsOpen] = useState(false);
   const [panelMode, setPanelMode] = useState<"story" | "about">("story");
-  const [viewMode, setViewMode] = useState<"map" | "archive">("map");
   const spot = spots[selected];
 
   useEffect(() => {
@@ -363,40 +362,18 @@ export default function App() {
   };
 
   return (
-    <main className={`atlas-shell ${viewMode === "archive" ? "is-archive" : ""}`}>
+    <main className="atlas-shell">
       <header className="site-header">
         <a
           className="brand"
           href="#"
           onClick={() => {
-            setViewMode("map");
             setDetailsOpen(false);
           }}
         >
           snack_atlas
         </a>
-        <nav className="view-switch" aria-label="Choose atlas view">
-          <button
-            className={viewMode === "map" ? "is-current" : ""}
-            type="button"
-            onClick={() => {
-              setViewMode("map");
-              setDetailsOpen(false);
-            }}
-          >
-            Map
-          </button>
-          <button
-            className={viewMode === "archive" ? "is-current" : ""}
-            type="button"
-            onClick={() => {
-              setViewMode("archive");
-              setDetailsOpen(false);
-            }}
-          >
-            Archive
-          </button>
-        </nav>
+        <span />
         <button
           className="about-link"
           type="button"
@@ -409,7 +386,6 @@ export default function App() {
         </button>
       </header>
 
-      {viewMode === "map" ? (
         <section className={`map-stage ${detailsOpen ? "has-selection" : ""}`} aria-label="Interactive world snack map">
           <div className="map-wrap">
             <img className="world-map" src={`${BASE}assets/6552c.png`} alt="Halftone world map" />
@@ -437,60 +413,6 @@ export default function App() {
             <span>Select a pin to discover a favorite snack</span>
           </div>
         </section>
-      ) : (
-        <section className={`archive-stage ${detailsOpen ? "has-selection" : ""}`} aria-labelledby="archive-title">
-          <div className="archive-intro">
-            <p>Collection 001 — childhood snacks</p>
-            <h1 id="archive-title">An archive of small memories.</h1>
-            <div className="archive-summary">
-              <span>{String(spots.length).padStart(2, "0")} objects</span>
-              <span>One shared table</span>
-            </div>
-          </div>
-          <div className="archive-rule">
-            <span>Object</span>
-            <span>Origin / contributor</span>
-          </div>
-          <div className="archive-grid">
-            {spots.map((item, index) => (
-              <article className={`archive-item ${index % 7 === 0 ? "is-featured" : ""}`} key={`${item.name}-${item.city}`}>
-                <button
-                  className="archive-card"
-                  type="button"
-                  onClick={() => {
-                    setSelected(index);
-                    setPanelMode("story");
-                    setDetailsOpen(true);
-                  }}
-                  aria-label={`View ${item.snack}, contributed by ${item.name}`}
-                >
-                  <div className="archive-image">
-                    <span className="accession-number">SA–{String(index + 1).padStart(3, "0")}</span>
-                    <img
-                      src={item.images?.[0] ?? snackPhoto}
-                      alt={item.imageAlts?.[0] ?? `${item.snack}, selected by ${item.name}`}
-                    />
-                    {item.images && item.images.length > 1 && (
-                      <span className="object-count">+{item.images.length - 1} object</span>
-                    )}
-                  </div>
-                  <div className="archive-caption">
-                    <div>
-                      <h2>{item.snack}</h2>
-                      <p>{item.name}</p>
-                    </div>
-                    <span>{item.city}</span>
-                  </div>
-                </button>
-              </article>
-            ))}
-          </div>
-          <footer className="archive-footer">
-            <span>End of collection</span>
-            <button type="button" onClick={() => setViewMode("map")}>Return to map →</button>
-          </footer>
-        </section>
-      )}
 
       <aside
         className={`snack-panel ${detailsOpen ? "is-open" : ""} ${panelMode === "about" ? "is-about" : ""}`}
