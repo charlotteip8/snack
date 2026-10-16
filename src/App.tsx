@@ -112,7 +112,7 @@ const spots: SnackSpot[] = [
   {
     name: "Nate",
     city: "Georgia, USA",
-    snack: "Bin Bin Rice Cracker, Chocolate Nutella Bun from a Taiwanese bakery",
+    snack: "Bin Bin Rice Cracker, Chocolate Nutella Bun",
     note: "Bin Bin Rice Cracker: Eating a bunch of these while lying on the floor when i was a child\nChocolate Nutella Bun: Ate this for many years while having a nut allergy, but when I was in high school, my aunt finally told me there was nutella inside.",
     images: [BASE + "assets/5286d.png", BASE + "assets/515f6.png"],
     imageAlts: ["Bin Bin rice crackers", "Chocolate Nutella bun"],
@@ -137,8 +137,8 @@ const spots: SnackSpot[] = [
   {
     name: "Ed",
     city: "Virginia, USA",
-    snack: "Nurunji, Ppushu ppushu",
-    note: "nurunji: Eating it en masse to the point where we couldnt keep up production. Also reboiling it into a porridge\nPpushu ppushu: Trying not to be a menace during class (elementary school) because you have to shake it before you eat it and that sh*t was LOUD",
+    snack: "Nurunji, Ppushu Ppushu",
+    note: "nurunji: Eating it en masse to the point where we couldnt keep up production. Also reboiling it into a porridge\nPpushu Ppushu: Trying not to be a menace during class (elementary school) because you have to shake it before you eat it and that sh*t was LOUD",
     images: [BASE + "assets/b522c.png", BASE + "assets/12f39.png"],
     imageAlts: ["Nurunji scorched-rice porridge", "Ppushu Ppushu snack package"],
     imageLayout: "side-by-side",
@@ -149,7 +149,7 @@ const spots: SnackSpot[] = [
   },
   {
     name: "Jiaen",
-    city: "the UK",
+    city: "London, UK",
     snack: "Walkers Squares, Lucky Candy",
     note: "Walkers squares: i first had these at a friend's birthday party in primary school. they were in a big bowl and soooo salty and vinegary that it was like burning my mouth haha. but it was so addicting and i had so much. then at uni i started buying meal deals so now i can eat them again yayy\ngarden lucky candy: first had these at church as a kid. for chinese new year there would be a lion dance and then it would throw these at us and so i associate them with chinese new year. so yummy",
     images: [BASE + "assets/eab34.png", BASE + "assets/4878e.png"],
