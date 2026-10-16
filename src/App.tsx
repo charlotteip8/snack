@@ -176,7 +176,7 @@ const spots: SnackSpot[] = [
   {
     name: "Joanne",
     city: "Taiwan",
-    snack: "Noodle hair snack with the curly afro hair girl, Doraemon shaped bread",
+    snack: "Noodle Snack, Doraemon shaped bread",
     note: "Noodle: Field trip/ after school snack\nBread: Breakfasr",
     images: [BASE + "assets/c4e3d.png", BASE + "assets/41004.png"],
     imageAlts: ["GGG original flavor wheat crackers", "Doraemon-shaped bread"],
@@ -202,8 +202,8 @@ const spots: SnackSpot[] = [
   {
     name: "Sharon",
     city: "Hong Kong",
-    snack: "Banana ice cream popsicle, Seaweed animal crackers",
-    note: "Banana: Having one with my family on a swety day after biking\nAnimal Crackers: I could choose which animal I wanted and also the seaweed would be stuck to my hands and i would have to lick it",
+    snack: "Banana Popsicle, Seaweed Animal Crackers",
+    note: "Banana: Having one with my family on a sweaty day after biking\nAnimal Crackers: I could choose which animal I wanted and also the seaweed would be stuck to my hands and i would have to lick it",
     images: [BASE + "assets/81dde.png", BASE + "assets/6cb12.png"],
     imageAlts: ["Nestlé Benna banana ice-cream bar", "Ginbis Dream Animals seaweed crackers"],
     imageLayout: "side-by-side",
