@@ -1,6 +1,9 @@
    {
      "title": "Snack Atlas",
-     "description": "Discover favorite snacks through an interactive map that highlights locations and provides engaging descriptions for each snack.",
+     "description": "my interactive snack map; connecting memories with childhood snacks",
+     "icons": {
+       "icon": "/snack/favicon.png"
+     },
      "robots": {
        "index": false
      },
