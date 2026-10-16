@@ -595,7 +595,7 @@ export default function App() {
             </div>
             <div className="story">
               <div className="eyebrow">
-                <span>Favorite Childhood Snack</span>
+                <span>Hometown</span>
                 <span>{spot.city}</span>
               </div>
               <h1 key={spot.snack}>{spot.snack}</h1>
