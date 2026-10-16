@@ -1,0 +1,11 @@
+   {
+     "title": "Snack Atlas",
+     "description": "Discover favorite snacks through an interactive map that highlights locations and provides engaging descriptions for each snack.",
+     "robots": {
+       "index": false
+     },
+     "accessibility": {
+       "addBypassLinks": false,
+       "ignoreReducedMotion": false
+     }
+   }
