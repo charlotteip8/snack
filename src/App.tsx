@@ -481,7 +481,7 @@ export default function App() {
             setDetailsOpen(true);
           }}
         >
-          How it works <span>↗</span>
+          The Story <span>↗</span>
         </button>
       </header>
 
