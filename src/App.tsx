@@ -34,7 +34,7 @@ const spots: SnackSpot[] = [
   {
     name: "Cara",
     city: "Washington, USA",
-    snack: "고래밥 Gorae bap, Kancho",
+    snack: "고래밥 Gorae Bap, Kancho",
     note: "Gorae Bap: Everyone we go on a flight these were like my airplane snacks and I liked traveling so every time I travel I think of goraebap\nKancho: They have fun characters in their chocolate biscuit thing",
     images: [BASE + "assets/72408.png", BASE + "assets/3be4c.png"],
     imageAlts: ["Orion Gorae Bap whale-shaped crackers", "Lotte Kancho chocolate biscuits"],
@@ -73,7 +73,7 @@ const spots: SnackSpot[] = [
   {
     name: "Melody",
     city: "California, USA",
-    snack: "萨其马 (funnel cake brick with brown sugar syrup)",
+    snack: "萨其马 (brick with brown sugar syrup)",
     note: "Funnel Cake: plastic stuck on the snack. picking the plastic film off the snack",
     images: [BASE + "assets/34c14.png"],
     imageAlts: ["Sachima funnel-cake snack with brown sugar syrup"],
@@ -112,7 +112,7 @@ const spots: SnackSpot[] = [
   {
     name: "Nate",
     city: "Georgia, USA",
-    snack: "Bin Bin Rice Cracker, Chocolate Nutella Bun from a Taiwanese bakery",
+    snack: "Bin Bin Rice Cracker, Chocolate Nutella Bun",
     note: "Bin Bin Rice Cracker: Eating a bunch of these while lying on the floor when i was a child\nChocolate Nutella Bun: Ate this for many years while having a nut allergy, but when I was in high school, my aunt finally told me there was nutella inside.",
     images: [BASE + "assets/5286d.png", BASE + "assets/515f6.png"],
     imageAlts: ["Bin Bin rice crackers", "Chocolate Nutella bun"],
@@ -293,8 +293,8 @@ const spots: SnackSpot[] = [
   {
     name: "Kara",
     city: "Hong Kong",
-    snack: "pizza chips, kowloon dairy chocolate milk",
-    note: "pizza chips: coming home from school and downing the whole bag oops\nkowloon dairy chocolate milk: washing the bottle and getting money back LOL",
+    snack: "Pizza Chips, Kowloon Dairy Chocolate Milk",
+    note: "Pizza Chips: coming home from school and downing the whole bag oops\nkowloon dairy chocolate milk: washing the bottle and getting money back LOL",
     images: [BASE + "assets/a855c.png", BASE + "assets/ebf48.png"],
     imageAlts: ["Calbee pizza chips", "Kowloon Dairy chocolate milk"],
     imageLayout: "side-by-side",
@@ -306,7 +306,7 @@ const spots: SnackSpot[] = [
   {
     name: "Isaac",
     city: "Shanghai, China",
-    snack: "Sunflower seeds, Wang Wang Rice Craker",
+    snack: "Sunflower Seeds, Wang Wang Rice Craker",
     note: "Sunflower seeds: Eating out of boredom or during long family gatherings\nWang Wang Rice Cakes:After school treat. Grandma always seemed to have it",
     images: [BASE + "assets/c41d0.png", BASE + "assets/67271.png"],
     imageAlts: ["Sunflower seeds", "Wang Wang Shelly Senbei rice crackers"],
@@ -319,7 +319,7 @@ const spots: SnackSpot[] = [
   {
     name: "Zoe",
     city: "Maryland, USA",
-    snack: "雞蛋仔 (Egg Waffle), Goldfish",
+    snack: "雞蛋仔 , Goldfish",
     note: "Egg Waffle: very specific memory of one time in hk, my grandfather brought me back some for no particular reason. he's a very traditional chinese elderly man so this is the only sign of affection I got from him haha. I also remember my great-aunt on the other side of the family bringing me to this one specific place (in wan chai or something) and buying me one\nGoldfish: no specific memory of this one, but this was probably one of the snacks I ate most in america when I was little. we'd get giant boxes from costco...",
     images: [BASE + "assets/852e5.png", BASE + "assets/98461.png"],
     imageAlts: ["Hong Kong egg waffle", "Cheddar Goldfish crackers"],
@@ -382,7 +382,7 @@ export default function App() {
             setDetailsOpen(true);
           }}
         >
-          How it works <span>↗</span>
+          The Story <span>↗</span>
         </button>
       </header>
 
@@ -476,7 +476,7 @@ export default function App() {
             </div>
             <div className="story">
               <div className="eyebrow">
-                <span>Favorite Childhood Snack</span>
+                <span>Hometown</span>
                 <span>{spot.city}</span>
               </div>
               <h1 key={spot.snack}>{spot.snack}</h1>
