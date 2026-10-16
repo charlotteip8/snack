@@ -545,7 +545,7 @@ export default function App() {
           <div className="about-panel">
             <div className="about-kicker">
               <span>About the atlas</span>
-              <span>24 stories</span>
+              <span></span>
             </div>
             <h1>The Story</h1>
             <div className="about-copy">
