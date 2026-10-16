@@ -2,7 +2,7 @@
      "title": "snack_atlas",
      "description": "my interactive snack map; connecting memories with childhood snacks",
      "icons": {
-       "icon": "/snack/favicon.png"
+       "icon": "/snack/public/assets/favicon.png"
      },
      "robots": {
        "index": false
