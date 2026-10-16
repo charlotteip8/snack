@@ -959,3 +959,161 @@ button {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ---- Shared-snack connections ---- */
+.links {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.links path {
+  fill: none;
+  stroke: #caff00;
+  stroke-width: 1.6;
+  stroke-dasharray: 5 5;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+  animation: link-flow 1.4s linear infinite;
+}
+
+@keyframes link-flow {
+  to { stroke-dashoffset: -20; }
+}
+
+.map-pin {
+  transition: filter 180ms ease, opacity 250ms ease, transform 260ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.map-pin.is-dim {
+  opacity: 0.28;
+}
+
+.map-pin.is-linked {
+  z-index: 4;
+}
+
+.map-pin.is-linked::after {
+  border-color: #caff00;
+  transform: scale(1.12);
+}
+
+.tag-bar {
+  position: absolute;
+  z-index: 15;
+  right: 0;
+  bottom: 64px;
+  left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 4vw;
+  font-size: 10px;
+}
+
+.tag-bar-label {
+  margin-right: 4px;
+  opacity: 0.72;
+}
+
+.tag-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  border: 1px solid rgb(255 255 255 / 0.5);
+  border-radius: 999px;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  font-size: 10px;
+  white-space: nowrap;
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.tag-chip:hover {
+  background: rgb(255 255 255 / 0.18);
+}
+
+.tag-chip b {
+  font-weight: 500;
+  opacity: 0.7;
+}
+
+.tag-chip[aria-pressed="true"] {
+  border-color: #caff00;
+  background: #caff00;
+  color: #111;
+}
+
+.shared {
+  display: grid;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.shared > strong {
+  font-size: 9px;
+  font-style: italic;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.shared-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 12px;
+}
+
+.shared .tag-chip {
+  padding: 5px 10px;
+  border-color: rgb(17 17 17 / 0.3);
+  color: #111;
+}
+
+.shared .tag-chip:hover {
+  background: rgb(17 17 17 / 0.06);
+}
+
+.shared .tag-chip[aria-pressed="true"] {
+  border-color: #caff00;
+  background: #caff00;
+}
+
+.who-link {
+  padding: 0;
+  background: transparent;
+  color: #424242;
+  cursor: pointer;
+  font-family: "Manrope", sans-serif;
+  font-size: 12px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.who-link:hover {
+  color: #0784f8;
+}
+
+.shared-empty {
+  margin: 0;
+  color: #757575;
+  font-family: "Manrope", sans-serif;
+  font-size: 12px;
+}
+
+@media (max-width: 780px) {
+  .tag-bar {
+    bottom: 56px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding: 0 16px;
+  }
+}
