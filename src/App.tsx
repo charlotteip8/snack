@@ -23,9 +23,9 @@ const spots: SnackSpot[] = [
   {
     name: "Sean",
     city: "Vancouver, Canada",
-    snack: "Instant Noodles",
-    note: "Instant Noodles: Secretly eating instant noodles when my parents were not home because they wouldn’t let me",
-    images: [BASE + "assets/848df.png"],
+    snack: "Instant Noodles, Pocky",
+    note: "Instant Noodles: Secretly eating instant noodles when my parents were not home because they wouldn’t let me\nPocky: Going to T&T supermarket with my mom and getting all the pocky flavours",
+    images: [BASE + "assets/848df.png", BASE + "assets/cc873.png"],
     grocery: "T&T Supermarket",
     x: 12.86,
     y: 27.65,
@@ -34,7 +34,7 @@ const spots: SnackSpot[] = [
   {
     name: "Cara",
     city: "Washington, USA",
-    snack: "고래밥 Gorae Bap, Kancho",
+    snack: "고래밥 Gorae bap, Kancho",
     note: "Gorae Bap: Everyone we go on a flight these were like my airplane snacks and I liked traveling so every time I travel I think of goraebap\nKancho: They have fun characters in their chocolate biscuit thing",
     images: [BASE + "assets/72408.png", BASE + "assets/3be4c.png"],
     imageAlts: ["Orion Gorae Bap whale-shaped crackers", "Lotte Kancho chocolate biscuits"],
@@ -73,7 +73,7 @@ const spots: SnackSpot[] = [
   {
     name: "Melody",
     city: "California, USA",
-    snack: "萨其马 (brick with brown sugar syrup)",
+    snack: "萨其马 (funnel cake brick with brown sugar syrup)",
     note: "Funnel Cake: plastic stuck on the snack. picking the plastic film off the snack",
     images: [BASE + "assets/34c14.png"],
     imageAlts: ["Sachima funnel-cake snack with brown sugar syrup"],
@@ -112,7 +112,7 @@ const spots: SnackSpot[] = [
   {
     name: "Nate",
     city: "Georgia, USA",
-    snack: "Bin Bin Rice Cracker, Chocolate Nutella Bun",
+    snack: "Bin Bin Rice Cracker, Chocolate Nutella Bun from a Taiwanese bakery",
     note: "Bin Bin Rice Cracker: Eating a bunch of these while lying on the floor when i was a child\nChocolate Nutella Bun: Ate this for many years while having a nut allergy, but when I was in high school, my aunt finally told me there was nutella inside.",
     images: [BASE + "assets/5286d.png", BASE + "assets/515f6.png"],
     imageAlts: ["Bin Bin rice crackers", "Chocolate Nutella bun"],
@@ -293,8 +293,8 @@ const spots: SnackSpot[] = [
   {
     name: "Kara",
     city: "Hong Kong",
-    snack: "Pizza Chips, Kowloon Dairy Chocolate Milk",
-    note: "Pizza Chips: coming home from school and downing the whole bag oops\nkowloon dairy chocolate milk: washing the bottle and getting money back LOL",
+    snack: "pizza chips, kowloon dairy chocolate milk",
+    note: "pizza chips: coming home from school and downing the whole bag oops\nkowloon dairy chocolate milk: washing the bottle and getting money back LOL",
     images: [BASE + "assets/a855c.png", BASE + "assets/ebf48.png"],
     imageAlts: ["Calbee pizza chips", "Kowloon Dairy chocolate milk"],
     imageLayout: "side-by-side",
@@ -306,7 +306,7 @@ const spots: SnackSpot[] = [
   {
     name: "Isaac",
     city: "Shanghai, China",
-    snack: "Sunflower Seeds, Wang Wang Rice Craker",
+    snack: "Sunflower seeds, Wang Wang Rice Craker",
     note: "Sunflower seeds: Eating out of boredom or during long family gatherings\nWang Wang Rice Cakes:After school treat. Grandma always seemed to have it",
     images: [BASE + "assets/c41d0.png", BASE + "assets/67271.png"],
     imageAlts: ["Sunflower seeds", "Wang Wang Shelly Senbei rice crackers"],
@@ -319,7 +319,7 @@ const spots: SnackSpot[] = [
   {
     name: "Zoe",
     city: "Maryland, USA",
-    snack: "雞蛋仔 , Goldfish",
+    snack: "雞蛋仔 (Egg Waffle), Goldfish",
     note: "Egg Waffle: very specific memory of one time in hk, my grandfather brought me back some for no particular reason. he's a very traditional chinese elderly man so this is the only sign of affection I got from him haha. I also remember my great-aunt on the other side of the family bringing me to this one specific place (in wan chai or something) and buying me one\nGoldfish: no specific memory of this one, but this was probably one of the snacks I ate most in america when I was little. we'd get giant boxes from costco...",
     images: [BASE + "assets/852e5.png", BASE + "assets/98461.png"],
     imageAlts: ["Hong Kong egg waffle", "Cheddar Goldfish crackers"],
@@ -339,15 +339,85 @@ function Arrow({ direction }: { direction: "left" | "right" }) {
   );
 }
 
+// ---- Shared-snack connections -------------------------------------------
+// Each person is tagged with the snacks they share with others.
+// To connect more people, add a tag id to their entry here (key is "Name|City").
+const TAG_LABEL: Record<string, string> = {
+  goldfish: "Goldfish",
+  mamee: "Mamee Noodles",
+  pocky: "Pocky",
+  walkers: "Walkers",
+  nurunji: "Nurunji (scorched rice)",
+  saltvinegar: "Salt & vinegar",
+};
+
+const TAGS: Record<string, string[]> = {
+  "Kayce|Virginia, USA": ["goldfish"],
+  "Isaac|New Jersey, USA": ["goldfish"],
+  "Zoe|Maryland, USA": ["goldfish"],
+  "Angie|Hong Kong": ["mamee"],
+  "Zoe|Hong Kong": ["mamee", "pocky"],
+  "Sean|Vancouver, Canada": ["pocky"],
+  "Katie|Coventry, UK": ["walkers"],
+  "Jiaen|the UK": ["walkers", "saltvinegar"],
+  "Gloria|USA": ["saltvinegar"],
+  "Elaina|Texas, USA": ["nurunji"],
+  "Ed|Virginia, USA": ["nurunji"],
+};
+
+const tagsOf = (i: number): string[] => TAGS[`${spots[i].name}|${spots[i].city}`] ?? [];
+const membersOf = (tag: string): number[] => spots.map((_, i) => i).filter((i) => tagsOf(i).includes(tag));
+const SHARED_TAGS = Object.keys(TAG_LABEL)
+  .filter((t) => membersOf(t).length > 1)
+  .sort((a, b) => membersOf(b).length - membersOf(a).length);
+
+type Link = { from: number; to: number };
+
+const linkPath = (a: number, b: number) => {
+  const A = spots[a];
+  const B = spots[b];
+  const dist = Math.hypot(A.x - B.x, A.y - B.y);
+  const mx = (A.x + B.x) / 2;
+  const my = (A.y + B.y) / 2 - Math.max(dist * 0.22, 2.5);
+  return `M${A.x} ${A.y} Q${mx} ${my} ${B.x} ${B.y}`;
+};
+
 export default function App() {
   const [selected, setSelected] = useState(0);
   const [detailsOpen, setDetailsOpen] = useState(false);
   const [panelMode, setPanelMode] = useState<"story" | "about">("story");
+  const [activeTag, setActiveTag] = useState<string | null>(null);
   const spot = spots[selected];
+
+  const storyOpen = detailsOpen && panelMode === "story";
+  const myTags = tagsOf(selected);
+  const links: Link[] = [];
+  if (activeTag) {
+    const group = membersOf(activeTag).sort((a, b) => spots[a].x - spots[b].x);
+    for (let k = 0; k < group.length - 1; k++) links.push({ from: group[k], to: group[k + 1] });
+  } else if (storyOpen) {
+    const seen = new Set<number>();
+    myTags.forEach((tag) =>
+      membersOf(tag).forEach((m) => {
+        if (m !== selected && !seen.has(m)) {
+          seen.add(m);
+          links.push({ from: selected, to: m });
+        }
+      }),
+    );
+  }
+  const linked = new Set<number>();
+  links.forEach((l) => {
+    linked.add(l.from);
+    linked.add(l.to);
+  });
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setDetailsOpen(false);
+      if (event.key === "Escape") {
+        setDetailsOpen(false);
+        setActiveTag(null);
+      }
       if (event.key === "ArrowRight") setSelected((current) => (current + 1) % spots.length);
       if (event.key === "ArrowLeft") setSelected((current) => (current - 1 + spots.length) % spots.length);
     };
@@ -356,6 +426,7 @@ export default function App() {
   }, []);
 
   const moveSelection = (step: number) => {
+    setActiveTag(null);
     setSelected((current) => (current + step + spots.length) % spots.length);
     setPanelMode("story");
     setDetailsOpen(true);
@@ -382,21 +453,27 @@ export default function App() {
             setDetailsOpen(true);
           }}
         >
-          The Story <span>↗</span>
+          How it works <span>↗</span>
         </button>
       </header>
 
         <section className={`map-stage ${detailsOpen ? "has-selection" : ""}`} aria-label="Interactive world snack map">
           <div className="map-wrap">
             <img className="world-map" src={`${BASE}assets/6552c.png`} alt="Halftone world map" />
+            <svg className="links" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+              {links.map((l) => (
+                <path key={`${l.from}-${l.to}`} d={linkPath(l.from, l.to)} />
+              ))}
+            </svg>
             {spots.map((item, index) => (
               <button
-                className={`map-pin ${selected === index && detailsOpen && panelMode === "story" ? "is-active" : ""}`}
+                className={`map-pin ${selected === index && storyOpen ? "is-active" : ""} ${linked.has(index) ? "is-linked" : ""} ${links.length > 0 && !linked.has(index) ? "is-dim" : ""}`}
                 key={`${item.name}-${item.city}`}
                 style={{ left: `${item.x}%`, top: `${item.y}%` }}
                 type="button"
                 onClick={() => {
                   setSelected(index);
+                  setActiveTag(null);
                   setPanelMode("story");
                   setDetailsOpen(true);
                 }}
@@ -405,6 +482,20 @@ export default function App() {
               >
                 <img src={`${BASE}assets/${item.asset}`} alt="" />
                 <span className="pin-label">{item.name}</span>
+              </button>
+            ))}
+          </div>
+          <div className="tag-bar" role="group" aria-label="Snacks shared by more than one person">
+            <span className="tag-bar-label">Shared snacks</span>
+            {SHARED_TAGS.map((tag) => (
+              <button
+                key={tag}
+                className="tag-chip"
+                type="button"
+                aria-pressed={activeTag === tag}
+                onClick={() => setActiveTag(activeTag === tag ? null : tag)}
+              >
+                {TAG_LABEL[tag]} <b>{membersOf(tag).length}</b>
               </button>
             ))}
           </div>
@@ -476,13 +567,47 @@ export default function App() {
             </div>
             <div className="story">
               <div className="eyebrow">
-                <span>Hometown</span>
+                <span>Favorite Childhood Snack</span>
                 <span>{spot.city}</span>
               </div>
               <h1 key={spot.snack}>{spot.snack}</h1>
               <div className="memory">
                 <strong>Associated Memory</strong>
                 <p>{spot.note}</p>
+              </div>
+              <div className="shared">
+                <strong>Shared with</strong>
+                {myTags.length > 0 ? (
+                  myTags.map((tag) => (
+                    <div className="shared-row" key={tag}>
+                      <button
+                        className="tag-chip"
+                        type="button"
+                        aria-pressed={activeTag === tag}
+                        onClick={() => setActiveTag(activeTag === tag ? null : tag)}
+                      >
+                        {TAG_LABEL[tag]}
+                      </button>
+                      {membersOf(tag)
+                        .filter((i) => i !== selected)
+                        .map((i) => (
+                          <button
+                            key={i}
+                            className="who-link"
+                            type="button"
+                            onClick={() => {
+                              setSelected(i);
+                              setActiveTag(null);
+                            }}
+                          >
+                            {spots[i].name} · {spots[i].city.split(",")[0]}
+                          </button>
+                        ))}
+                    </div>
+                  ))
+                ) : (
+                  <p className="shared-empty">No one else has this snack yet.</p>
+                )}
               </div>
               {spot.grocery && (
                 <div className="grocery">
