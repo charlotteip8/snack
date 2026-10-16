@@ -329,6 +329,34 @@ const spots: SnackSpot[] = [
     y: 38.55,
     asset: "f3a1b.svg",
   },
+
+  {
+    name: "Selma",
+    city: "Oxford, UK",
+    snack: "Yoghurt Coated Raisins, Dairylea Dunkers",
+    note: "Yoghurt Coated Raisins: Any sort of day out in the nature\nDairylea Dunkers: The best part of a school packed lunch",
+    images: [BASE + "assets/0004114309071.jpg", BASE + "assets/f1ef27de-3bda-4122-9352-dea14b2df26a.png"],
+    imageAlts: ["Yoghurt Coated Raisins", "Dairylea Dunkers"],
+    imageLayout: "side-by-side",
+    grocery: "/M&S because the fruit and veg is much higher quality",
+    x: 46.7,
+    y: 36.3,
+    asset: "f3a1b.svg",
+  },
+
+  {
+    name: "Lara",
+    city: "It’s complex.",
+    snack: "Shapes Crakers",
+    note: "Shapes Crakers: They reminded me of Scooby snacks and I thought it was cute ",
+    images: [BASE + "assets/shapes.png"],
+    imageAlts: ["Shapes Crakers"],
+    imageLayout: "side-by-side",
+    grocery: "/M&S. Best bang for your buck food quality wise.",
+    x: 46.8,
+    y: 36.2,
+    asset: "f3a1b.svg",
+  },
 ];
 
 function Arrow({ direction }: { direction: "left" | "right" }) {
