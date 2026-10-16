@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+const BASE = import.meta.env.BASE_URL;
+
 const snackPhoto =
   "https://images.unsplash.com/photo-1604246381427-b3280e9a1a63?auto=format&fit=crop&w=1200&q=85";
 
@@ -23,7 +25,7 @@ const spots: SnackSpot[] = [
     city: "Vancouver, Canada",
     snack: "Instant Noodles",
     note: "Instant Noodles: Secretly eating instant noodles when my parents were not home because they wouldn’t let me",
-    images: ["/assets/848df.png"],
+    images: [BASE + "assets/848df.png"],
     grocery: "T&T Supermarket",
     x: 12.86,
     y: 27.65,
@@ -34,7 +36,7 @@ const spots: SnackSpot[] = [
     city: "Washington, USA",
     snack: "고래밥 Gorae bap, Kancho",
     note: "Gorae Bap: Everyone we go on a flight these were like my airplane snacks and I liked traveling so every time I travel I think of goraebap\nKancho: They have fun characters in their chocolate biscuit thing",
-    images: ["/assets/72408.png", "/assets/3be4c.png"],
+    images: [BASE + "assets/72408.png", BASE + "assets/3be4c.png"],
     imageAlts: ["Orion Gorae Bap whale-shaped crackers", "Lotte Kancho chocolate biscuits"],
     imageLayout: "side-by-side",
     grocery: "Trader Joe’s for local farms and niche finds",
@@ -47,7 +49,7 @@ const spots: SnackSpot[] = [
     city: "USA",
     snack: "Salt and Vinegar Chips",
     note: "After school care always let us have snacks, but they would dismiss us to go get the snacks one class at a time depending on who was behaving well that day so the good snacks were always gone by the end like the chips",
-    images: ["/assets/3d419.png"],
+    images: [BASE + "assets/3d419.png"],
     imageAlts: ["Lay’s salt and vinegar potato chips"],
     imageLayout: "single",
     grocery: "King Soopers - local chain with high quality food but low prices",
@@ -60,7 +62,7 @@ const spots: SnackSpot[] = [
     city: "California, USA",
     snack: "Nongshim Fried Chicken Drumstick",
     note: "Every time we eat it during recess, other people look at us weird and ask us why we were eating fried chicken and where we got it.",
-    images: ["/assets/650ec.png"],
+    images: [BASE + "assets/650ec.png"],
     imageAlts: ["Nongshim fried chicken drumstick snack"],
     imageLayout: "single",
     grocery: "Trader Joes; healthy, reasonable price, easily accessible.",
@@ -73,7 +75,7 @@ const spots: SnackSpot[] = [
     city: "California, USA",
     snack: "萨其马 (funnel cake brick with brown sugar syrup)",
     note: "Funnel Cake: plastic stuck on the snack. picking the plastic film off the snack",
-    images: ["/assets/34c14.png"],
+    images: [BASE + "assets/34c14.png"],
     imageAlts: ["Sachima funnel-cake snack with brown sugar syrup"],
     imageLayout: "single",
     grocery: "Eataly because I love high quality Italian ingredient based food and feeling better than everyone else",
@@ -86,7 +88,7 @@ const spots: SnackSpot[] = [
     city: "Texas, USA",
     snack: "Strawberries, Scorched Rice (누룽지)",
     note: "Strawberries: There was this time where my parents took me strawberry picking. Apparently I was eating them like crazy. Like way faster than they could pick them. Some kid in the field like urgently needed to use the bathroom but he refused to go initially because, “that girl is going to eat all the strawberries.”\nScorched Rice (누룽지): My grandma would always make this for me when I went to her house. I like it when there’s a crunchy layer on the bottom and the top rice is still soft.",
-    images: ["/assets/ad9c4.png", "/assets/a76e7.png"],
+    images: [BASE + "assets/ad9c4.png", BASE + "assets/a76e7.png"],
     imageAlts: ["Fresh strawberries", "NH scorched rice snack"],
     imageLayout: "side-by-side",
     grocery: "I like Whole Foods because they have good fruit, sourdough bread, and they sell 90/10 ground beef.",
@@ -99,7 +101,7 @@ const spots: SnackSpot[] = [
     city: "New Jersey, USA",
     snack: "Teddy Grahams,Goldfish",
     note: "Teddy Grahams: Eat a bunch of it\nGoldfish: Eat 3 bags a day",
-    images: ["/assets/a1f69.png", "/assets/98461.png"],
+    images: [BASE + "assets/a1f69.png", BASE + "assets/98461.png"],
     imageAlts: ["Honey Teddy Grahams", "Cheddar Goldfish crackers"],
     imageLayout: "side-by-side",
     grocery: "Costco because hot dog is yum",
@@ -112,7 +114,7 @@ const spots: SnackSpot[] = [
     city: "Georgia, USA",
     snack: "Bin Bin Rice Cracker, Chocolate Nutella Bun from a Taiwanese bakery",
     note: "Bin Bin Rice Cracker: Eating a bunch of these while lying on the floor when i was a child\nChocolate Nutella Bun: Ate this for many years while having a nut allergy, but when I was in high school, my aunt finally told me there was nutella inside.",
-    images: ["/assets/5286d.png", "/assets/515f6.png"],
+    images: [BASE + "assets/5286d.png", BASE + "assets/515f6.png"],
     imageAlts: ["Bin Bin rice crackers", "Chocolate Nutella bun"],
     imageLayout: "side-by-side",
     grocery: "Target - so nice and clean",
@@ -125,7 +127,7 @@ const spots: SnackSpot[] = [
     city: "Virginia, USA",
     snack: "Popcorn, Extra Cheddar Goldfish",
     note: "Popcorn: I would eat it and give some to my dog who also loved popcorn\nGoldfish: I ate it everyday after school in middle school",
-    images: ["/assets/935e2.png", "/assets/8b2f0.png"],
+    images: [BASE + "assets/935e2.png", BASE + "assets/8b2f0.png"],
     imageAlts: ["Boom Chicka Pop sweet and salty kettle corn", "Flavor Blasted Extra Cheddar Goldfish"],
     grocery: "Trader Joe’s - it has my favorite popcorn",
     x: 29.2,
@@ -137,7 +139,7 @@ const spots: SnackSpot[] = [
     city: "Virginia, USA",
     snack: "Nurunji, Ppushu ppushu",
     note: "nurunji: Eating it en masse to the point where we couldnt keep up production. Also reboiling it into a porridge\nPpushu ppushu: Trying not to be a menace during class (elementary school) because you have to shake it before you eat it and that sh*t was LOUD",
-    images: ["/assets/b522c.png", "/assets/12f39.png"],
+    images: [BASE + "assets/b522c.png", BASE + "assets/12f39.png"],
     imageAlts: ["Nurunji scorched-rice porridge", "Ppushu Ppushu snack package"],
     imageLayout: "side-by-side",
     grocery: "Hmart because im korean",
@@ -150,7 +152,7 @@ const spots: SnackSpot[] = [
     city: "the UK",
     snack: "Walkers Squares, Lucky Candy",
     note: "Walkers squares: i first had these at a friend's birthday party in primary school. they were in a big bowl and soooo salty and vinegary that it was like burning my mouth haha. but it was so addicting and i had so much. then at uni i started buying meal deals so now i can eat them again yayy\ngarden lucky candy: first had these at church as a kid. for chinese new year there would be a lion dance and then it would throw these at us and so i associate them with chinese new year. so yummy",
-    images: ["/assets/eab34.png", "/assets/4878e.png"],
+    images: [BASE + "assets/eab34.png", BASE + "assets/4878e.png"],
     imageAlts: ["Walkers Squares salt and vinegar crisps", "Garden Lucky Candy"],
     imageLayout: "side-by-side",
     grocery: "lidl cos it's cheap! and the bakery is famous for being yummy haha. i associate it to being a student and meal prepping or cooking with friends",
@@ -163,7 +165,7 @@ const spots: SnackSpot[] = [
     city: "Coventry, UK",
     snack: "Walkers crisps, Vimto bon bon sweets",
     note: "Walkers crisps: Eating it for school lunches\nVimto bon bon sweets: Eating it after doctors appointment",
-    images: ["/assets/1b5fd.png", "/assets/8d801.png"],
+    images: [BASE + "assets/1b5fd.png", BASE + "assets/8d801.png"],
     imageAlts: ["Walkers Ready Salted crisps", "Vimto Chewy Bon Bons"],
     imageLayout: "side-by-side",
     grocery: "Costco bc u can stock buy and they have lots of great options",
@@ -176,7 +178,7 @@ const spots: SnackSpot[] = [
     city: "Taiwan",
     snack: "Noodle hair snack with the curly afro hair girl, Doraemon shaped bread",
     note: "Noodle: Field trip/ after school snack\nBread: Breakfasr",
-    images: ["/assets/c4e3d.png", "/assets/41004.png"],
+    images: [BASE + "assets/c4e3d.png", BASE + "assets/41004.png"],
     imageAlts: ["GGG original flavor wheat crackers", "Doraemon-shaped bread"],
     imageLayout: "side-by-side",
     grocery: "7 eleven bc its always open and cheap",
@@ -189,7 +191,7 @@ const spots: SnackSpot[] = [
     city: "South Korea",
     snack: "죠리퐁 (Jolly Pong), Banana Kick",
     note: "Jolly Pong: Eating it with my family and scooping it with our hands or eating with ice cream :D\nBanana Kick: I was always excited when my mom bought some cause they were my favorite",
-    images: ["/assets/b2c9e.png", "/assets/4d04a.png"],
+    images: [BASE + "assets/b2c9e.png", BASE + "assets/4d04a.png"],
     imageAlts: ["Jolly Pong snack", "Nongshim Banana Kick snack"],
     imageLayout: "side-by-side",
     grocery: "I love dainobu because they have such a wide selection, from good ready-to-go meals to snacks, condiments, ingredients, and they're also pretty decent in price!",
@@ -202,7 +204,7 @@ const spots: SnackSpot[] = [
     city: "Hong Kong",
     snack: "Banana ice cream popsicle, Seaweed animal crackers",
     note: "Banana: Having one with my family on a swety day after biking\nAnimal Crackers: I could choose which animal I wanted and also the seaweed would be stuck to my hands and i would have to lick it",
-    images: ["/assets/81dde.png", "/assets/6cb12.png"],
+    images: [BASE + "assets/81dde.png", BASE + "assets/6cb12.png"],
     imageAlts: ["Nestlé Benna banana ice-cream bar", "Ginbis Dream Animals seaweed crackers"],
     imageLayout: "side-by-side",
     grocery: "Costco because there are a lot of testers and i get full from dat",
@@ -215,7 +217,7 @@ const spots: SnackSpot[] = [
     city: "Thailand",
     snack: "Biscuits in a red box, Dinosaur ( its crispy and slightly savory, seafood or shrimp flavored)",
     note: "Biscuits in a red box: Every NY, my parents always get the ny basket. This biscuit is the only thing i can eat. The rest just taste old.\nDinosaur:Me n my friends always buy whenever we go school camping.",
-    images: ["/assets/c678c.png"],
+    images: [BASE + "assets/c678c.png"],
     imageAlts: ["Dino Park dinosaur-shaped snack"],
     imageLayout: "single",
     grocery: "Whole food or H mart. Whole food cus i like the quality and it’s walkable. H- mart cus im asian, i go whenever i miss asian food, n whos not gonna like hmart :)",
@@ -228,7 +230,7 @@ const spots: SnackSpot[] = [
     city: "Bangkok, Thailand",
     snack: "Calbee shrimp snack, Jelly babies",
     note: "Calbee shrimp snack: Classic\nJelly babies: I remember I was on a bad hike and a teacher gave me some jelly babies. That was kind of him.",
-    images: ["/assets/65f23.png", "/assets/2e124.png"],
+    images: [BASE + "assets/65f23.png", BASE + "assets/2e124.png"],
     imageAlts: ["Calbee shrimp snack", "Maynards Bassetts Jelly Babies"],
     imageLayout: "side-by-side",
     grocery: "Sainsbury’s - I would leave school and walk a mile to the closest grocery store which was this store. I think it’s the journey to get there.",
@@ -241,7 +243,7 @@ const spots: SnackSpot[] = [
     city: "Hong Kong",
     snack: "mamee noodles, Fishballs & Siu Mai",
     note: "mamee noodles: eating at school with friends at recess\nFishballs & Siu Mai: afterschool snack trips with brother",
-    images: ["/assets/ab597.png", "/assets/75972.png"],
+    images: [BASE + "assets/ab597.png", BASE + "assets/75972.png"],
     imageAlts: ["Mamee noodle snack", "Fishballs and siu mai"],
     imageLayout: "side-by-side",
     grocery: "yata - big range of snacks and food from around the world and have been going a lot since I was a kid",
@@ -254,7 +256,7 @@ const spots: SnackSpot[] = [
     city: "Hong Kong",
     snack: "Mamee Noodles, Pocky",
     note: "Mamee Noodles: having to crush it through the packaging and the bag bursting and spilling everywhere\nPocky: eating it during snacktime in the classroom during elementary",
-    images: ["/assets/ab597.png", "/assets/cc873.png"],
+    images: [BASE + "assets/ab597.png", BASE + "assets/cc873.png"],
     imageAlts: ["Mamee noodle snack", "Chocolate Pocky biscuit sticks"],
     imageLayout: "side-by-side",
     grocery: "park n shop because it has a wide variety of food and its near my home",
@@ -267,7 +269,7 @@ const spots: SnackSpot[] = [
     city: "Singapore",
     snack: "Gem Biscuits, White Rabbit candy",
     note: "Gem Biscuit: my mum says they're called belly button biscuits in cantonese and it sounds really cute\nWhite Rabbit: eating the paper with my cousin",
-    images: ["/assets/8a179.png", "/assets/2864a.png"],
+    images: [BASE + "assets/8a179.png", BASE + "assets/2864a.png"],
     imageAlts: ["Khong Guan Fancy Gems biscuits", "White Rabbit candy"],
     imageLayout: "stacked",
     grocery: "the wet market, fresh food",
@@ -280,7 +282,7 @@ const spots: SnackSpot[] = [
     city: "Indonesia",
     snack: "Hello panda, Pilus",
     note: "Hello Panda: Used to be a snack we eat at Sunday school, or a snack i share with my younger brother\nPilus: Me and my brothers love to eat this when we’re young, we like to use iton top of our rice, we share a pack",
-    images: ["/assets/b7217.png", "/assets/ccdf6.png"],
+    images: [BASE + "assets/b7217.png", BASE + "assets/ccdf6.png"],
     imageAlts: ["Meiji Hello Panda chocolate cookies", "Garuda Pilus snack"],
     imageLayout: "side-by-side",
     grocery: "Yomart - its like the closest and biggest grocery store near my home, and ive been going there since kindergarten so in a way i kinda grew up there. Theres so many memories there with my family, like i know every inch of that place. Like me and my brothers always go to the snack aisle or milk aisle lol, and i always stock up haagen dazs there. Little memories like that",
@@ -293,7 +295,7 @@ const spots: SnackSpot[] = [
     city: "Hong Kong",
     snack: "pizza chips, kowloon dairy chocolate milk",
     note: "pizza chips: coming home from school and downing the whole bag oops\nkowloon dairy chocolate milk: washing the bottle and getting money back LOL",
-    images: ["/assets/a855c.png", "/assets/ebf48.png"],
+    images: [BASE + "assets/a855c.png", BASE + "assets/ebf48.png"],
     imageAlts: ["Calbee pizza chips", "Kowloon Dairy chocolate milk"],
     imageLayout: "side-by-side",
     grocery: "parknshop? that’s the one in the mall downstairs lol or 家興 bc it’s cheap",
@@ -306,7 +308,7 @@ const spots: SnackSpot[] = [
     city: "Shanghai, China",
     snack: "Sunflower seeds, Wang Wang Rice Craker",
     note: "Sunflower seeds: Eating out of boredom or during long family gatherings\nWang Wang Rice Cakes:After school treat. Grandma always seemed to have it",
-    images: ["/assets/c41d0.png", "/assets/67271.png"],
+    images: [BASE + "assets/c41d0.png", BASE + "assets/67271.png"],
     imageAlts: ["Sunflower seeds", "Wang Wang Shelly Senbei rice crackers"],
     imageLayout: "side-by-side",
     grocery: "Family Mart. I went there every day after school.",
@@ -319,7 +321,7 @@ const spots: SnackSpot[] = [
     city: "Maryland, USA",
     snack: "雞蛋仔 (Egg Waffle), Goldfish",
     note: "Egg Waffle: very specific memory of one time in hk, my grandfather brought me back some for no particular reason. he's a very traditional chinese elderly man so this is the only sign of affection I got from him haha. I also remember my great-aunt on the other side of the family bringing me to this one specific place (in wan chai or something) and buying me one\nGoldfish: no specific memory of this one, but this was probably one of the snacks I ate most in america when I was little. we'd get giant boxes from costco...",
-    images: ["/assets/852e5.png", "/assets/98461.png"],
+    images: [BASE + "assets/852e5.png", BASE + "assets/98461.png"],
     imageAlts: ["Hong Kong egg waffle", "Cheddar Goldfish crackers"],
     imageLayout: "side-by-side",
     grocery: "lidl because it's cheap and reminds me of family road trips to eu countries when we'd always stop buy their lidl to see what local snacks they had. I also really like trader joe's because of their unique branding/flavors, also cheap. in macedonia I liked kam because it was soooooo cheap and had all the essential groceries",
@@ -410,7 +412,7 @@ export default function App() {
       {viewMode === "map" ? (
         <section className={`map-stage ${detailsOpen ? "has-selection" : ""}`} aria-label="Interactive world snack map">
           <div className="map-wrap">
-            <img className="world-map" src="/assets/6552c.png" alt="Halftone world map" />
+            <img className="world-map" src={`${BASE}assets/6552c.png`} alt="Halftone world map" />
             {spots.map((item, index) => (
               <button
                 className={`map-pin ${selected === index && detailsOpen && panelMode === "story" ? "is-active" : ""}`}
@@ -425,7 +427,7 @@ export default function App() {
                 aria-label={`Open ${item.name}’s favorite snack in ${item.city}`}
                 aria-pressed={selected === index && detailsOpen && panelMode === "story"}
               >
-                <img src={`/assets/${item.asset}`} alt="" />
+                <img src={`${BASE}assets/${item.asset}`} alt="" />
                 <span className="pin-label">{item.name}</span>
               </button>
             ))}
